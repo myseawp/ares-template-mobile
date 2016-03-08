@@ -15,14 +15,26 @@ fis.config.set('settings.deploy.zip', {
         }
     }]
 });
-//编译添加域名配置
-fis.config.set('roadmap.domain', '/resources/mtest');
-//资源服务器及comb地址设置
+
 fis.config.set('framework', {
     cache: false,
-    urlPattern: '/resources/mtest/c/%s',
-    comboPattern: '/resources/mtest/co??%s'
+    urlPattern: '/c/%s',
+    comboPattern: '/co??%s'
 });
+
+//配置发布环境
+if(process.env.PROD){
+    //编译添加域名配置
+    fis.config.set('roadmap.domain', '/resources/mtest');
+    //资源服务器及comb地址设置
+    fis.config.set('framework', {
+        cache: false,
+        urlPattern: '/resources/mtest/c/%s',
+        comboPattern: '/resources/mtest/co??%s'
+    });
+}
+
+
 
 //设置生态组件服务地址
 fis.config.set('repo',{
