@@ -10,7 +10,7 @@ fis.config.set('settings.deploy.zip', {
         "server": {
             "receiver": "http://www.yitong.com.cn:19081/mmp-show/ares/api/upload.do",
             "data": {
-                "path":"/resources/mtest"
+                "path":"/mmp-show-resources/mtest"
             }
         }
     }]
@@ -25,12 +25,12 @@ fis.config.set('framework', {
 //配置发布环境
 if(process.env.PROD){
     //编译添加域名配置
-    fis.config.set('roadmap.domain', '/resources/mtest');
+    fis.config.set('roadmap.domain', '/mmp-show-resources/mtest');
     //资源服务器及comb地址设置
     fis.config.set('framework', {
         cache: false,
-        urlPattern: '/resources/mtest/c/%s',
-        comboPattern: '/resources/mtest/co??%s'
+        urlPattern: '/mmp-show-resources/mtest/c/%s',
+        comboPattern: '/mmp-show/mmp-show-resources/mtest/co.do??%s'
     });
 }
 
